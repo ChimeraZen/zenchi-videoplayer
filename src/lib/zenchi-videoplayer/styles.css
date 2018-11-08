@@ -1,0 +1,128 @@
+.zenchi-videoplayer {
+  display: grid;
+  grid-template-areas: 'videoplayer playlist';
+  grid-template-rows: auto;
+  grid-template-columns: auto 300px;
+    
+  min-width: 100%;
+  max-width: 100%;
+  
+  min-height: 100%;
+  max-height: 100%;
+  
+  color: #EEE;
+}
+
+
+
+/* Video Player */
+.zenchi-videoplayer > .videoplayer {
+  grid-area: videoplayer;
+  position: relative;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background: #000000;
+}
+
+.zenchi-videoplayer > .videoplayer > header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  display: flex;
+  align-items: center;
+  
+  margin: 0 20px;
+  padding: 10px;
+}
+
+
+
+/* Playlist */
+.zenchi-videoplayer > .playlist {
+  grid-area: playlist;
+  
+  background: #222222;
+}
+
+.zenchi-videoplayer > .playlist > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zenchi-videoplayer > .playlist > header > h2 {
+  padding: 0 10px;
+}
+
+.zenchi-videoplayer > .playlist label.playlist-input {
+  position: relative;
+  
+  overflow: hidden;
+}
+
+.zenchi-videoplayer > .playlist label.playlist-input > i {
+  display: flex;
+  justify-content: center;
+  
+  width: 50px;
+  height: 50px;
+  
+  font-size: 2em;
+  font-weight: 600;
+  
+  cursor: pointer;
+}
+
+.zenchi-videoplayer > .playlist label.playlist-input > i:hover {
+  background: rgba(255, 255, 255, 0.125);
+}
+
+.zenchi-videoplayer > .playlist input[type=file] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.zenchi-videoplayer > .playlist > ul {
+  height: calc(100% - 50px);
+  
+  list-style-type: none;
+  
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.zenchi-videoplayer > .playlist > ul > li {
+  display: flex;
+  align-items: center;
+  
+  min-height: 50px;
+  
+  padding: 0 10px;
+  
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.zenchi-videoplayer > .playlist > ul > li.active {
+   background: #444;
+}
+
+.zenchi-videoplayer > .playlist > ul > li > .item-name {
+  margin-left: 10px;
+  word-break: break-word;
+}
+
+.zenchi-videoplayer > .playlist > ul > li:hover {
+  background: rgba(255, 255, 255, 0.125);
+}
+
+.zenchi-videoplayer > .playlist > ul > .empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: 100%;
+}
