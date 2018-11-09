@@ -27,7 +27,7 @@
   background: #000000;
 }
 
-.zenchi-videoplayer > .videoplayer > header{
+.zenchi-videoplayer > .videoplayer > header {
   position: absolute;
   top: 0;
   left: 0;
@@ -38,7 +38,13 @@
   margin: 0 20px;
   padding: 10px;
 }
-
+.zenchi-videoplayer > .videoplayer video {
+  min-width: initial;
+  width: 100%;
+  max-width: 100%;
+  
+  height: auto;
+}
 
 
 /* Playlist */
@@ -49,9 +55,13 @@
 }
 
 .zenchi-videoplayer > .playlist > header {
+  position: relative;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
+  max-height: 50px;
 }
 
 .zenchi-videoplayer > .playlist > header > h2 {
@@ -88,6 +98,9 @@
 
 .zenchi-videoplayer > .playlist > ul {
   height: calc(100% - 50px);
+  
+  padding: 0;
+  margin: 0;
   
   list-style-type: none;
   

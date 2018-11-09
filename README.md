@@ -2,7 +2,7 @@
   
 **Description**:  The ZenChi Video Player is a React-based video player that uses the File API to allow users to add local video files into a playlist
 
-**Version**:      [0.1.0](#v010)  
+**Version**:      [0.1.1](#v011)  
 **Author**:       Elijah Liedtke (Chimera.Zen)  
 **Email**:        [chimera.zen@gmail.com](mailto:chimera.zen@gmail.com)  
 **Link**:         https://github.com/ChimeraZen/zenchi-videoplayer
@@ -36,7 +36,7 @@ npm i zenchi-videoplayer
 ```
 2. Once installed, the VideoPlayer component can be imported using:
 ```
-import VideoPlayer from 'zenchi-videoplayer'
+import { VideoPlayer } from 'zenchi-videoplayer'
 ```
 &nbsp;
 ### Updating
@@ -57,7 +57,7 @@ npm uninstall zenchi-videoplayer
 ### VideoPlayer
 The ZenChi VideoPlayer component uses React v16.6 and the HTML5 File API to allow users to add local video files into a playlist.
 
-This component can be initialized using `import VideoPlayer from 'zenchiapp-videoplayer'`
+This component can be initialized using `import { VideoPlayer } from 'zenchiapp-videoplayer'`
 
 ```
 <VideoPlayer />
@@ -70,5 +70,14 @@ className   |string   |zenchi-videoplayer|*(Optional)* Class props are passed to
 
 &nbsp;
 ## ChangeLog
+### v0.1.1
+* Style updates
+* Added ref to active title for setTimeout connection
+  * Active title fades after set 3 seconds
+* Added logic to add custom id and classNames to VideoPlayer top-level container
+* Added **width: *100%*** to `<video>` element
+
+
+
 ### v0.1.0
 * Initial GIT Commit and NPM package test

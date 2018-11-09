@@ -8,6 +8,20 @@ export default class VideoPlayer extends Component {
   }
 
   videoRef = React.createRef()
+  activeTitleRef = React.createRef()
+
+  componentDidMount() {
+    this.activeTitleRef.current.style.opacity = 1
+  }
+
+  fadeActiveTitle = () => {
+    const titleRef = this.activeTitleRef.current
+    
+    if(titleRef.style.opacity > 0) {
+      titleRef.style.opacity = titleRef.style.opacity - 0.01
+      requestAnimationFrame(this.fadeActiveTitle)
+    }
+  }
 
 
   // Create the playlist based off the user-added videos
@@ -15,7 +29,7 @@ export default class VideoPlayer extends Component {
     const files = e.target.files,
           playlist = []
     let i = 0
-    console.log(files)
+    
     while(i < files.length) {
       const file = files[i],
             objectURL = window.URL.createObjectURL(file),
@@ -40,8 +54,31 @@ export default class VideoPlayer extends Component {
   // Set the active video to selected playlist item
   handleChangeItem = (e) => {
     const activeItem = parseInt(e.currentTarget.dataset.id)
+    
+    // Reset the title to visible
+    this.activeTitleRef.current.style.opacity = 1
+    
+    // Set the active item
     this.setState({ activeItem: activeItem })
   }
+  
+  
+  // Build playlist
+  buildPlaylist = () => (
+    <ul>
+      {this.state.playlist.length > 0
+        ? this.state.playlist.map((item, i) => {
+            return <li key={item.name + '_' + i} data-id={i} className={this.state.activeItem === i ? "active" : null} onClick={this.handleChangeItem}>
+              {i + 1 + "."}
+              <span className="item-name" data-id={i}>
+                {item.name}
+              </span>
+            </li>
+          })
+        : <li className="empty">Playlist is empty</li>
+      }
+    </ul>
+  )
   
   
   // Build the source element
@@ -63,6 +100,9 @@ export default class VideoPlayer extends Component {
 
     // Start playing the video
     video.play()
+    
+    // Fade out the active title after 3s
+    setTimeout(this.fadeActiveTitle, 3000)
   }
   
   
@@ -74,18 +114,25 @@ export default class VideoPlayer extends Component {
   
   
   render() {
-    console.log(this.state)
     const activeVideoTitle = this.state.playlist.length > 0 && this.state.playlist[this.state.activeItem].name,
-          playlistId = "playlist-" + Math.floor(Math.random() * 1000)
+          playlistId = "playlist-" + Math.floor(Math.random() * 1000),
+          playlist = this.buildPlaylist(),
+          
+          // Add the custom ID and base className
+          id = this.props.id ? this.props.id : null,
+          classNames = ["zenchi-videoplayer"]
     
     // Build the source element and load the active video
     this.state.playlist.length > 0 && this.buildSource(this.state.activeItem)
     
+    // Add custom classes
+    this.props.className && classNames.push(this.props.className)
+    
     return (
-      <div className="zenchi-videoplayer">
+      <div id={id} className={classNames.join(" ")}>
         <section className="videoplayer">
           <header>
-            <h3>{activeVideoTitle}</h3>
+            <h3 ref={this.activeTitleRef}>{activeVideoTitle}</h3>
           </header>
           
           <video controls ref={this.videoRef}></video>
@@ -100,19 +147,7 @@ export default class VideoPlayer extends Component {
             </label>
           </header>
 
-          <ul>
-            {this.state.playlist.length > 0
-              ? this.state.playlist.map((item, i) => {
-                  return <li key={item.name + '_' + i} data-id={i} className={this.state.activeItem === i ? "active" : null} onClick={this.handleChangeItem}>
-                    {i + 1 + "."}
-                    <span className="item-name" data-id={i}>
-                      {item.name}
-                    </span>
-                  </li>
-                })
-              : <li className="empty">Playlist is empty</li>
-            }
-          </ul>
+          {playlist}
         </section>
       </div>
     )
