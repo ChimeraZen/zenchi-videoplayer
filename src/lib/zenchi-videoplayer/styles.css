@@ -66,6 +66,7 @@
 
 .zenchi-videoplayer > .playlist > header > h2 {
   padding: 0 10px;
+  margin: 0;
 }
 
 .zenchi-videoplayer > .playlist label.playlist-input {
