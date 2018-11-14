@@ -1,5 +1,5 @@
 # ZenChi Video Player
-  
+
 **Description**:  The ZenChi Video Player is a React-based video player that uses the File API to allow users to add local video files into a playlist
 
 **Version**:      [0.1.2](#v012)  
@@ -18,9 +18,7 @@
 2. [Components](#components)
     1. [VideoPlayer](#videoplayer)
 3. [ChangeLog](#changelog)
-
-----
-
+---
 ## Instructions
 The following has been provided to assist in installing, updating or removing the ZenChi (pronounced: *zen-Kai*) Video Player. Questions, comments, suggestions and concerns are welcome and can be sent to [chimera.zen@gmail.com](mailto:chimera.zen@gmail.com).
 
