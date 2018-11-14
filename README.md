@@ -18,7 +18,9 @@
 2. [Components](#components)
     1. [VideoPlayer](#videoplayer)
 3. [ChangeLog](#changelog)
+
 ---
+
 ## Instructions
 The following has been provided to assist in installing, updating or removing the ZenChi (pronounced: *zen-Kai*) Video Player. Questions, comments, suggestions and concerns are welcome and can be sent to [chimera.zen@gmail.com](mailto:chimera.zen@gmail.com).
 
