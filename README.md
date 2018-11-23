@@ -2,7 +2,7 @@
 
 **Description**:  The ZenChi Video Player is a React-based video player that uses the File API to allow users to add local video files into a playlist
 
-**Version**:      [0.1.2](#v012)  
+**Version**:      [0.1.3](#v013)  
 **Author**:       Elijah Liedtke (Chimera.Zen)  
 **Email**:        [chimera.zen@gmail.com](mailto:chimera.zen@gmail.com)  
 **Link**:         https://github.com/ChimeraZen/zenchi-videoplayer
@@ -70,6 +70,11 @@ className   |string   |zenchi-videoplayer|*(Optional)* Class props are passed to
 
 &nbsp;
 ## ChangeLog
+### v0.1.3
+* Responsive Style updates
+
+
+
 ### v0.1.2
 * Style updates
 

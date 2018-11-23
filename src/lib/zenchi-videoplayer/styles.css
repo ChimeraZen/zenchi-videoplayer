@@ -1,14 +1,8 @@
 .zenchi-videoplayer {
-  display: grid;
-  grid-template-areas: 'videoplayer playlist';
-  grid-template-rows: auto;
-  grid-template-columns: auto 300px;
-    
-  min-width: 100%;
-  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
   
-  min-height: 100%;
-  max-height: 100%;
+  height: 100%;
   
   color: #EEE;
 }
@@ -17,7 +11,7 @@
 
 /* Video Player */
 .zenchi-videoplayer > .videoplayer {
-  grid-area: videoplayer;
+  flex: 1 2 75%;
   position: relative;
   
   display: flex;
@@ -49,7 +43,9 @@
 
 /* Playlist */
 .zenchi-videoplayer > .playlist {
-  grid-area: playlist;
+  flex: 1 1 300px;
+  
+  width: 300px;
   
   background: #222222;
 }
